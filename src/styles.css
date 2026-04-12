@@ -1,1 +1,110 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Design System */
+:root {
+  /* Colors */
+  --bg-color: #f8fafc;        /* Soft off-white background */
+  --bg-gradient: radial-gradient(circle at top left, #ffffff, #f1f5f9);
+  --accent-primary: #0ea5e9;  /* Bright sky blue */
+  --accent-secondary: #8b5cf6;/* Soft vibrant purple */
+  
+  /* Text Colors */
+  --text-main: #0f172a;       /* Very dark slate for main text (contrast) */
+  --text-muted: #475569;      /* Slate gray for secondary text */
+  
+  /* Glassmorphism Tokens */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  --glass-blur: blur(12px);
+
+  /* Typography */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-color);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  /* subtle decorative blobs behind everything */
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background blob decorations */
+body::before, body::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.5;
+  animation: float 10s ease-in-out infinite alternate;
+}
+
+body::before {
+  background: rgba(6, 182, 212, 0.15); /* cyan blob */
+  width: 40vw;
+  height: 40vw;
+  top: -10%;
+  left: -10%;
+}
+
+body::after {
+  background: rgba(16, 185, 129, 0.15); /* light green/purple blob adjustment */
+  width: 30vw;
+  height: 30vw;
+  bottom: 10%;
+  right: -5%;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, 30px) scale(1.1); }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  filter: brightness(1.2);
+}
+
+/* Glass Card Utility Class */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+/* Premium Gradient Text Utility */
+.gradient-text {
+  background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}

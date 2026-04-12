@@ -1,0 +1,50 @@
+/* Home Page Styles */
+.hero-section {
+  min-height: calc(100vh - 150px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.main-hero-card {
+  max-width: 800px;
+  width: 100%;
+}
+
+.avatar-container {
+  margin-bottom: 2rem;
+}
+
+.avatar-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  object-fit: cover;
+}
+
+.greeting {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
+
+.tagline {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .greeting {
+    font-size: 2.5rem;
+  }
+  .tagline {
+    font-size: 1.2rem;
+  }
+}
